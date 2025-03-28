@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Science Lab</title>
+    <link rel="stylesheet" href="editor.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<!-- Editor Section (default view) -->
+<div id="editor">
+    <h2>Code Editor <i class="fa-brands fa-codepen"></i></h2>
+    
+    <div id="tabs">
+        <button id="html-tab" class="tab active"><i class="fa-solid fa-code"></i></button>
+        <button id="css-tab" class="tab"><i class="fa-brands fa-css3-alt"></i></button>
+        <button id="js-tab" class="tab"><i class="fa-brands fa-square-js"></i></button>   
+        <button id="favorite-btn" class="tab"><i class="fa-solid fa-star" ></i></button>
+        <form action="/collection" method="get">
+            <button id="my-collection-btn" class="tab"><i class="fa-solid fa-bookmark"></i></button>
+        </form><br><br>
+        <form action="/ai" method="get">
+            <button id="my-ai" class="tab"><i class="fa-solid fa-robot " ></i></button>
+        </form>
+    </div>
+    
+    <!-- Textarea for HTML, CSS, JS Code -->
+    <textarea id="html-code" class="code-area" placeholder="Write HTML here..."></textarea>
+    <textarea id="css-code" class="code-area hidden" placeholder="Write CSS here..."></textarea>
+    <textarea id="js-code" class="code-area hidden" placeholder="Write JavaScript here..."></textarea><br><br>
+
+ 
+</div>
+
+<!-- Output Section -->
+<div id="output">
+    <h1>Output</h1>
+    <iframe id="result"></iframe>
+</div>
+  <script src="editor.js"></script>
+</body>
+</html>
