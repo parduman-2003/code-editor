@@ -100,33 +100,7 @@ app.get('/collection/:id', async (req, res) => {
 app.get("/ai", (req, res) => {
     res.render("./my-ai.ejs");
 });
-// API URL and API Key from the .env file
-const API_KEY = process.env.GOOGLE_API_KEY;
-const GEMINI_API_URL = 'https://generativeai.googleapis.com/v1beta3/models/gemini-1.5:generateText';
 
-// Serve static files from the "public" directory
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.json());
-
-// Function to call the Gemini API
-async function getGeminiResponse(userInput) {
-  try {
-    const response = await axios.post(GEMINI_API_URL, {
-      prompt: userInput,
-      model: 'gemini-1.5-pro',
-    }, {
-      headers: {
-        'Authorization': `Bearer ${API_KEY}`,
-        'Content-Type': 'application/json',
-      }
-    });
-
-    return response.data.result || 'Sorry, I couldn\'t get a response from the AI.';
-  } catch (error) {
-    console.error('Error fetching data from Gemini API:', error);
-    return 'Sorry, something went wrong with the AI request.';
-  }
-}
 
 // Route to handle chatbot messages from the frontend
 app.post('/chatbot', async (req, res) => {
